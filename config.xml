@@ -8,5 +8,6 @@
         BentDev
     </author>
     <content src="index.html" />
+    <preference name="auto-hide-splash-screen" value="true" />
     <access origin="*" />
 </widget>
