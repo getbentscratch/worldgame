@@ -166,7 +166,11 @@ padding-bottom: 3.9%;
   document.getElementById("put2").value = "";
 }
 function CopyToClipboard(containerid) {
-    var range = document.createRange();
+     var range = document.createRange();
+     range.selectNode(document.getElementById(containerid));
+     window.getSelection().removeAllRanges();
+     window.getSelection().addRange(range);
+     var range = document.createRange();
      range.selectNode(document.getElementById(containerid));
      window.getSelection().addRange(range);
      document.execCommand("copy");
