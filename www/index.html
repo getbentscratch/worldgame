@@ -14,6 +14,7 @@
   word-wrap: break-word;
   padding: 5%;
   font-size: 500%;
+  font-family: arial;
 }
 #put {
 outline: none;
@@ -164,6 +165,12 @@ padding-bottom: 3.9%;
   }
   document.getElementById("put2").value = "";
 }
+function CopyToClipboard(containerid) {
+    var range = document.createRange();
+     range.selectNode(document.getElementById(containerid));
+     window.getSelection().addRange(range);
+     document.execCommand("copy");
+}
         </script>
         <form action="javascript:encode();" id="command">
   <input type="text" id="put" autocomplete="off">
@@ -173,6 +180,6 @@ padding-bottom: 3.9%;
   <input type="text" id="put2" autocomplete="off">
   <input type="submit" value="Decode" id="decbutton">
 </form>
-<div id="output"></div>
+<div id="output" onmousedown="CopyToClipboard('output')"></div>
     </body>
 </html>
