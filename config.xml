@@ -5,7 +5,7 @@
         An information encoder/decoder.
     </description>
     <author email="lucas.bent@msad60.org" href="">
-        PhoneGap Team
+        BentDev
     </author>
     <content src="index.html" />
     <access origin="*" />
