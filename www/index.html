@@ -136,10 +136,11 @@ padding-bottom: 3.9%;
   var shift = poot.substring(poot.length - 1, poot.length);
   poot = poot.substring(0, poot.length - 1);
   poot = shift + poot;
-  document.getElementById("output").innerHTML = poot;
+  document.getElementById("output").innerHTML = toFixed(poot*document.getElementById("pinnumber").value);
 }
  function decode() {
   console.log("decode: " + document.getElementById("put2").value);
+document.getElementById("put2").value = toFixed(document.getElementById("put2").value/document.getElementById("pinnumber").value);
   var rev2 = document.getElementById("put2").value.length;
   var poot2 = "";
   var decin = document.getElementById("put2").value;
@@ -201,6 +202,23 @@ function CopyToClipboard(containerid) {
      window.getSelection().addRange(range);
      document.execCommand("copy");
      alert("Output copied to clipboard!");
+}
+function toFixed(x) {
+  if (Math.abs(x) < 1.0) {
+    var e = parseInt(x.toString().split('e-')[1]);
+    if (e) {
+        x *= Math.pow(10,e-1);
+        x = '0.' + (new Array(e)).join('0') + x.toString().substring(2);
+    }
+  } else {
+    var e = parseInt(x.toString().split('+')[1]);
+    if (e > 20) {
+        e -= 20;
+        x /= Math.pow(10,e);
+        x += (new Array(e+1)).join('0');
+    }
+  }
+  return x;
 }
         </script>
   <input type="submit" value="PIN:" id="pinlabel">
